@@ -4,6 +4,7 @@ var request = require ('request');
 var cheerio = require ('cheerio');
 var app = express();
 var Promise = require('promise');
+var https = require('https');
 
 
 var restos = [];
@@ -46,7 +47,15 @@ function scrapping(){
 function listRestos(){
 	console.log(restos[0])
 }
+
 scrapping().then(listRestos)
+
+ 
+request.get('https://m.lafourchette.com/api/restaurant-prediction?name=quinsou', (err, res, body) => {
+  let json = JSON.parse(body);
+  console.log(json[0].id)
+});
+
 
 
 
