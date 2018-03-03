@@ -3,13 +3,13 @@ var fs = require('fs');
 var request = require ('request');
 var cheerio = require ('cheerio');
 var app = express();
-var $ = require('jquery');
+var Promise = require('promise');
 
 
 var restos = [];
 
 function scrapping(){
-	return new Promise ((resolve,reject) => {
+	return new Promise (function(resolve, reject) {
 		var resultat = [];
 		var i=1;
 
@@ -31,8 +31,9 @@ function scrapping(){
 						json.title = title;
 						resultat.push(json);
 						restos.push(title)
+						
 					})
-					console.log(title);
+					setTimeout(function() {return resolve();}, 0)
 				}
 				fs.writeFile('output.json', JSON.stringify(resultat, null, 4), function(err){
 					})
@@ -41,8 +42,13 @@ function scrapping(){
 		}
 	})
 }
-let scrap = scrapping()
-scrap.then(console.log(restos))
+
+function listRestos(){
+	console.log(restos[0])
+}
+scrapping().then(listRestos)
+
+
 
 
 
