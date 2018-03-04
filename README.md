@@ -1,4 +1,4 @@
-# TOP CHEF
+﻿# TOP CHEF
 
 > Eat well and cheaper than usually
 
@@ -194,3 +194,14 @@ Some things to do:
 ## Licence
 
 [Uncopyrighted](http://zenhabits.net/uncopyright/)
+
+
+
+
+### A faire avant l'execution ###
+
+To install the modules needed, just run this line of code: 
+
+npm install -g request cheerio
+
+I didn't succeed to do all the work, I understand the idea of what we had to do but unfortunately, I didn't suceed to implement it.
